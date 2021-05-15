@@ -1,0 +1,12 @@
+<template>
+    <div class="container">
+        <template for:each={itemdata} for:item="item">
+            <c-tile
+                key={item.id__c} 
+                item = {item}
+                ontileclick={handleTileClick}
+            >
+            </c-tile>
+        </template>
+    </div>
+</template>

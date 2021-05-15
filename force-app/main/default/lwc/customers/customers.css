@@ -1,0 +1,16 @@
+.alignbutton
+{
+    float : right;
+}
+
+.aligntext
+{
+    float : left;
+    color :darkgreen;
+    font-weight: 800;
+}
+
+.alignform
+{
+    width : 50%;
+}

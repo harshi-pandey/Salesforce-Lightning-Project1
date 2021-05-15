@@ -1,0 +1,15 @@
+ebody{
+    margin: 0;
+  }
+ 
+  .button{
+    position :absolute;
+    right : 0;
+    font-weight: bold;
+  }
+
+  .aligndiv
+  {
+    text-align: right;
+  }
+  

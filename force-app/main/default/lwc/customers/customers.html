@@ -1,0 +1,68 @@
+<template>
+    <template if:true={accListOpen}>
+        <lightning-datatable            
+            data={accList} 
+            columns={columnsA} 
+            key-field="Name" 
+            hide-checkbox-column="true"  
+            onrowaction = {onrowclick}
+            >
+        </lightning-datatable>
+    </template>
+
+    <template if:true={viewtemplate}>
+        <lightning-button label="Edit" title="Edit" onclick={handleEdit} class="slds-m-left_x-small alignbutton" name = "Edit"></lightning-button>
+        <lightning-button label="Delete" title="Delete" onclick={handleDelete} class="slds-m-left_x-small alignbutton" name = "Delete"></lightning-button>
+        <lightning-button label="Back" title="Back" onclick={handleback} class="slds-m-left_x-small alignbutton"></lightning-button>
+      <br><br>
+
+    <c-confirmation-dialog 
+        title='Delete Record'
+        message='Do you really want to delete?'
+        confirm-label='Yes'
+        cancel-label='No'
+        visible={isDialogVisible}
+        name="confirmModal"
+        onclick={handleDelete}>
+    </c-confirmation-dialog>
+
+      <div>
+        <lightning-datatable            
+            data={productData} 
+            columns={columnsB} 
+            key-field="Name" 
+            show-row-number-column = "true"
+        >
+        </lightning-datatable>
+    </div>
+
+    </template>
+
+    <template if:true = {editTemplate}>
+      
+        <lightning-button label="Back" title="Back" onclick={backviewtemplate} class="slds-m-left_x-small alignbutton"></lightning-button>  
+        <div class = "alignform">
+        <lightning-card title={itemTitle}>
+            <lightning-formatted-text value={status} class = "aligntext"></lightning-formatted-text><br>
+            <lightning-layout>
+                <lightning-layout-item>
+                    <lightning-record-form
+                        class = "con-edit-form"
+                        record-id={recordId}
+                        object-api-name="SoldProducts__c"
+                        fields={selectedFields}
+                        columns="2"
+                        mode="edit"
+                        onsubmit={handleSubmit}>
+                    </lightning-record-form>
+                </lightning-layout-item>
+            </lightning-layout>
+        </lightning-card>
+        </div>
+    </template>
+
+    <template if:true={error}>
+        {error}
+    </template>
+
+</template>

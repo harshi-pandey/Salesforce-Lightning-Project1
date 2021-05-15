@@ -1,0 +1,27 @@
+<template>
+	<lightning-card title="SalesStock Pvt Limited" icon-name="utility:world">
+		<div class="slds-m-around_medium">
+			<lightning-tabset>
+				<lightning-tab label="Items">
+					<div class="wrapper">
+						<section class="content">
+							<div class="columns">
+								<main class="main">
+									<c-list onitemselected = {handleItemselected}></c-list>				
+								</main>
+								<aside class="sidebar-second">
+									<c-detail setproducts={selecteditemId}></c-detail>
+								</aside>
+							</div>
+						</section>
+					</div>
+				</lightning-tab>	
+				<lightning-tab label="Customers">
+						<div class="slds-m-around_medium">
+							<c-customers></c-customers>
+						</div>
+				</lightning-tab>	
+			</lightning-tabset>
+		</div>
+    </lightning-card>
+</template>
