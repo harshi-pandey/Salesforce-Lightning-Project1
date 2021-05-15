@@ -147,4 +147,16 @@ export default class Detail extends LightningElement {
         }
     }
 
+    handleBack(evt)
+    {
+         // This component wants to emit a detailselected event to its parent (mainpage)
+         const event = new CustomEvent('detailselected', {
+            detail: evt.detail
+        }
+        );
+        
+        // Fire the event from c-detail
+        this.dispatchEvent(event);
+    }
+
 }

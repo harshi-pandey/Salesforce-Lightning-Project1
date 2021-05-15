@@ -1,9 +1,9 @@
 <template>
     <template if:true={items}>
-        
-        <div class="container">
-            <lightning-button class = "button" label = "Sell Now" onclick = {sellprod}></lightning-button>
+        <lightning-button label="Back" title="Back" onclick={handleBack} class="slds-m-left_x-small alignbutton" name = "Back"></lightning-button>
+        <lightning-button class = "slds-m-left_x-small alignbutton" label = "Sell Now" onclick = {sellprod}></lightning-button>
 
+        <div class="container">
             <template if:true={isModalOpen}>
                 <!-- Modal/Popup Box LWC starts here -->
                 <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
@@ -63,9 +63,9 @@
                 <div class="slds-backdrop slds-backdrop_open"></div>
             </template>
 
-
-            <img class="product-img" src={items.imageUrl__c}></img>
             <div class="description">{items.description__c}</div>
+            <img class="product-img" src={items.imageUrl__c}></img>
+           
             <div class="price">Rs {items.Price__c}</div>
             <p>
                 <lightning-badge label={items.material__c}></lightning-badge>

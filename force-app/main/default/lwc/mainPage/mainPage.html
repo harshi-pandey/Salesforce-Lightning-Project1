@@ -7,11 +7,9 @@
 						<section class="content">
 							<div class="columns">
 								<main class="main">
-									<c-list onitemselected = {handleItemselected}></c-list>				
+									<c-list if:true = {listtemplate} onitemselected = {handleItemselected}></c-list>				
 								</main>
-								<aside class="sidebar-second">
-									<c-detail setproducts={selecteditemId}></c-detail>
-								</aside>
+								<c-detail if:true = {detailtemplate} ondetailselected = {handledetailselected} setproducts = {selecteditemId}></c-detail>
 							</div>
 						</section>
 					</div>
